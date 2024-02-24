@@ -81,11 +81,6 @@ describe("CreatePaymentService", () => {
       cvv: "123",
     };
 
-    const createMock = jest.fn().mockResolvedValue({
-      id: "mockedId",
-      ...paymentData,
-    });
-
     await createPaymentService.execute(paymentData);
 
     expect(prismaClient.payment.create).toHaveBeenCalledWith({
