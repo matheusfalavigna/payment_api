@@ -1,9 +1,10 @@
 import { Router, Request, Response } from "express";
+import { CreatePaymentController } from "./controllers/CreatePayment.controller";
 
 const routes = Router();
 
-routes.get("/", (req: Request, res: Response) => {
-  return res.json({ message: "Hello World" });
+routes.post("/create-payment", async (req: Request, res: Response) => {
+  return new CreatePaymentController().handle(req, res);
 });
 
 export { routes };
