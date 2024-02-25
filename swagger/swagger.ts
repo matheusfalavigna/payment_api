@@ -206,6 +206,115 @@ const options = {
           },
         },
       },
+      "/{id}": {
+        get: {
+          summary: "Lista um pagamento por ID",
+          description:
+            "Retorna um pagamento específico com base no ID fornecido.",
+          parameters: [
+            {
+              in: "path",
+              name: "id",
+              required: true,
+              type: "string",
+              description: "ID do pagamento a ser retornado",
+            },
+          ],
+          responses: {
+            "200": {
+              description: "Pagamento retornado com sucesso",
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      id: {
+                        type: "string",
+                        description: "Identificador do pagamento",
+                        example: "62e4321234567890ab123456",
+                      },
+                      name: {
+                        type: "string",
+                        description: "Nome do pagador",
+                        example: "João Silva",
+                      },
+                      card_number: {
+                        type: "string",
+                        description: "Número do cartão",
+                        example: "1234567890123456",
+                      },
+                      amount: {
+                        type: "string",
+                        description: "Valor do pagamento",
+                        example: "1000.00",
+                      },
+                      expiration_date: {
+                        type: "string",
+                        description: "Data de expiração do cartão",
+                        example: "12/2024",
+                      },
+                      cvv: {
+                        type: "string",
+                        description: "Código de segurança do cartão",
+                        example: "123",
+                      },
+                    },
+                    examples: {
+                      pagamentoExemplo: {
+                        value: {
+                          id: "62e4321234567890ab123456",
+                          name: "João Silva",
+                          card_number: "1234567890123456",
+                          amount: "1000.00",
+                          expiration_date: "12/2024",
+                          cvv: "123",
+                        },
+                        summary: "Exemplo de pagamento retornado com sucesso",
+                        description:
+                          "Este é um exemplo de pagamento retornado com sucesso.",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            "404": {
+              description: "Pagamento não encontrado",
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      message: {
+                        type: "string",
+                        description: "Mensagem de erro",
+                        example: "Pagamento não encontrado",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+            "500": {
+              description: "Erro interno do servidor",
+              content: {
+                "application/json": {
+                  schema: {
+                    type: "object",
+                    properties: {
+                      message: {
+                        type: "string",
+                        description: "Mensagem de erro",
+                        example: "Internal server error",
+                      },
+                    },
+                  },
+                },
+              },
+            },
+          },
+        },
+      },
     },
   },
   apis: ["./src/routes/*.ts"],
