@@ -28,13 +28,16 @@ describe("CreatePaymentService", () => {
     };
 
     (prismaClient.payment.create as jest.Mock).mockResolvedValue({
-      id: "mockedId",
+      id: "65d921708af1d514e0f0fa29",
       ...paymentData,
     });
 
     const createdPayment = await createPaymentService.execute(paymentData);
 
-    expect(createdPayment).toEqual({ id: "mockedId", ...paymentData });
+    expect(createdPayment).toEqual({
+      id: "65d921708af1d514e0f0fa29",
+      ...paymentData,
+    });
     expect(prismaClient.payment.create).toHaveBeenCalledWith({
       data: paymentData,
     });
