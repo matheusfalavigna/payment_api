@@ -8,16 +8,19 @@ const options = {
       version: "1.0.0",
       description: "API para criação de pagamentos.",
     },
+
     servers: [
       {
         url: "http://localhost:3000",
       },
     ],
+
     paths: {
       "/create-payment": {
         post: {
           summary: "Cria um novo pagamento",
           description: "Cria um novo pagamento com os dados fornecidos",
+          tags: ["payment"],
           parameters: [
             {
               in: "body",
@@ -140,6 +143,7 @@ const options = {
         get: {
           summary: "Lista todos os pagamentos",
           description: "Retorna uma lista com todos os pagamentos",
+          tags: ["payment"],
           responses: {
             "200": {
               description: "Lista de pagamentos retornada com sucesso",
@@ -211,6 +215,7 @@ const options = {
           summary: "Lista um pagamento por ID",
           description:
             "Retorna um pagamento específico com base no ID fornecido.",
+          tags: ["payment"],
           parameters: [
             {
               in: "path",
