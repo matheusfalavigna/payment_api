@@ -47,6 +47,10 @@ Endpoints da API:
 /payments	GET	Lista todos os pagamentos.
 /:id	GET	Recupera um pagamento específico pelo ID.
 ```
+Testes unitários:
+```
+Comumente rodo com a extensão Jest Runner, por ser mais rápido e intuitivo
+```
 
 ## 💻 Projeto
 
