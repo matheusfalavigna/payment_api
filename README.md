@@ -50,7 +50,7 @@ Endpoints da API:
 
 ## 💻 Projeto
 
-Projeto para listar e cadastrar transações de pagamentos
+Este projeto é a API para o sistema de pagamentos. Ela fornece endpoints para criar, listar e recuperar pagamentos individuais.
 
 
 
